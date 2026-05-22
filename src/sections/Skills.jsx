@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 
 const TABS = [
   { id: 'Technical',   label: 'Technical'    },
-  { id: 'Data',        label: 'Data & Tools' },
+  { id: 'Data',        label: 'Tools' },
   { id: 'Soft',        label: 'Soft Skills'  },
 ]
 
@@ -129,24 +129,24 @@ export default function Skills() {
         </div>
 
         {/* ── Tab buttons ── */}
-       <div className="reveal reveal-delay-2 flex gap-1 sm:gap-12 mb-12 border border-[#C2C2C2] w-full max-w-[520px] p-2 rounded-full sm:rounded-full mx-auto">
-  {TABS.map(({ id, label }) => (
-    <button
-      key={id}
-      onClick={() => switchTab(id)}
-      className={`
-        flex-1 text-sm font-medium tracking-wide uppercase
-        py-2 rounded-full text-center
-        transition-all duration-300
-        ${active === id
-          ? 'bg-[#1A1A1A] text-white'
-          : 'text-[#3D3D3D] hover:bg-[#F7F7F7]'}
-      `}
-    >
-      {label}
-    </button>
-  ))}
-</div>
+        <div className="reveal reveal-delay-2 flex gap-4 sm:gap-10 mb-12 border border-[#C2C2C2] w-full max-w-[520px] p-2 rounded-full sm:rounded-full mx-auto">
+            {TABS.map(({ id, label }) => (
+              <button
+                key={id}
+                onClick={() => switchTab(id)}
+                className={`
+                  flex-1 text-sm font-medium tracking-wide uppercase
+                  py-2 rounded-full
+                  transition-all duration-300
+                  ${active === id
+                    ? 'bg-[#1A1A1A] text-white'
+                    : 'text-[#3D3D3D] hover:bg-[#F7F7F7]'}
+                `}
+              >
+                {label}
+              </button>
+            ))}
+          </div>
 
         {/* ── Panel ── */}
         <div
