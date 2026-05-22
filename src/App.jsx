@@ -25,7 +25,7 @@ export default function App() {
         <Skills />
         <Contact />
       </main>
-      <Footer />
+      
 
       {progress > 20 && (
         <button

@@ -116,7 +116,7 @@ export default function Skills() {
   const data = CONTENT[rendered]
 
   return (
-    <section id="skills" className="py-28 px-6 md:px-10 max-w-5xl mx-auto pt-0" ref={sectionRef}>
+    <section id="skills" className="mt-16 py-28 px-6 md:px-10 max-w-5xl mx-auto pt-0" ref={sectionRef}>
       <div className="pt-0">
 
         {/* Header */}

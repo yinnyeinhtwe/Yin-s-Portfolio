@@ -72,12 +72,11 @@ export default function Contact() {
                   <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
                 </svg>
                 <div>
-                  <p className="label mb-0.5">Status</p>
-                  <div className="flex items-center gap-2 mt-0.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-green-500 animate-pulse" />
-                    <p className="text-lg font-medium text-secondary">Open to internship</p>
-                  </div>
-                </div>
+                <p className="label mb-0.5">Phone</p>
+                <a href="tel:+959795199078" className="text-lg font-medium text-[#1A1A1A] nav-link inline-block">
+                  +959 795 199 078
+                </a>
+              </div>
               </div>
             </div>
           </div>
@@ -134,6 +133,12 @@ export default function Contact() {
                       )
                   }
                 </button>
+                <p className="text-sm text-black text-center font-light">
+                  Or email directly at{' '}
+                  <a href="mailto:yinnyeinhtwe24@gmail.com" className="text-black font-semibold transition-colors">
+                    yinnyeinhtwe24@gmail.com
+                  </a>
+                </p>
                 
               </form>
             )}

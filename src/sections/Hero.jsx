@@ -32,17 +32,17 @@ export default function Hero() {
   return (
     <section id="hero" className="mt-24 flex flex-col justify-center px-6 md:px-10 max-w-5xl mx-auto relative">
       {/* Top label */}
-      <div className="flex top-24 left-6 md:left-10 reveal mt-2">
+      <div className="flex top-24 left-6 md:left-10 reveal mt-6">
         <span className="label">Software Engineering · UCSY · Yangon</span>
       </div>
 
-      <div className="grid md:grid-cols-[2fr_1fr] gap-2 md:gap-24 items-start">
-        <div className="space-y-3 mt-4">
+      <div className="grid md:grid-cols-[2fr_1fr] gap-2 md:gap-24 mt-3 items-start">
+        <div className="space-y-3 mt-6">
           <div className="reveal">
             <span className="label">Hello, I'm 👋</span>
           </div>
 
-          <div className="reveal reveal-delay-1">
+          <div className="reveal reveal-delay-1 mt-6">
             <h2 className="text-5xl md:text-6xl font-semibold tracking-tight leading-none text-ink">
               Yin Nyein Htwe
             </h2>
