@@ -13,7 +13,7 @@ A modern personal portfolio website built with React and Tailwind CSS, showcasin
 ## Technologies Used
 - React.js
 - Tailwind CSS
-- JavaScript / TypeScript
+- JavaScript
 - HTML5 & CSS3
 
 ## About Me
