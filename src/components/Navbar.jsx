@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { Menu, X } from "lucide-react";
 
 const navItems = [
@@ -9,9 +9,10 @@ const navItems = [
 ]
 
 export default function Navbar() {
-  const [scrolled, setScrolled]   = useState(false)
-  const [menuOpen, setMenuOpen]   = useState(false)
-  const [active,   setActive]     = useState('')
+  const [scrolled, setScrolled]   = useState(false);
+  const [menuOpen, setMenuOpen]   = useState(false);
+  const [active,   setActive]     = useState('');
+  const navRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => {
@@ -29,8 +30,25 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
+  //click outside to close mobile menu
+  useEffect(() => {
+    const handleClickOutside = (event) => { 
+      if (navRef.current && !navRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+
   return (
-    <header className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-5xl px-6 md:px-10 rounded-full border border-black transition-all duration-300 ${
+    <header 
+      ref={navRef}
+      className={`fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[calc(100%-1.5rem)] max-w-5xl px-6 md:px-10 rounded-full border border-black transition-all duration-300 ${
         scrolled
           ? 'bg-white/10 backdrop-blur-lg border-black shadow-lg'
           : ''
