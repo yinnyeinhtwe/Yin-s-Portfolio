@@ -1,4 +1,8 @@
 import { useState } from 'react'
+import { RiFileCheckFill, RiFileCloseFill } from "react-icons/ri";
+import { AiFillMessage } from "react-icons/ai";
+import { IoIosMail } from "react-icons/io";
+import { FaTelegramPlane } from "react-icons/fa";
 
 export default function Contact() {
   const [form,   setForm]   = useState({ name: '', email: '', message: '' })
@@ -10,22 +14,38 @@ export default function Contact() {
     e.preventDefault()
     setStatus('sending')
     // Replace with Formspree: fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: JSON.stringify(form), headers:{'Content-Type':'application/json'} })
-    await new Promise(r => setTimeout(r, 1400))
-    setStatus('sent')
-    setForm({ name: '', email: '', message: '' })
+    try{
+      const res = await fetch('https://formspree.io/f/xjgzepjd',
+        { method:'POST',
+          headers:{'Content-Type':'application/json'},
+          body: JSON.stringify({
+            name: form.name,
+            email: form.email,
+            message: form.message,
+          }),
+        })
+        if ( res.ok ) {
+          setStatus('sent')
+          setForm({ name: '', email: '', message: '' })
+        } else {
+          setStatus('error')
+        }
+    }
+    catch {
+      setStatus('error')
+    }
   }
 
   return (
     <section id="contact" className="pb-20 px-6 md:px-10 max-w-5xl mx-auto">
-      <div className="pt-0">
-        <div className="grid md:grid-cols-2 gap-16 md:gap-24">
+      <div className="pt-0 mb-10">
+        <div className="grid md:grid-cols-2 gap-16 md:gap-19">
 
           {/* Left */}
           <div className="space-y-8">
             <div className="reveal reveal-delay-1">
-              <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-tight text-ink">
-                Let's work<br />
-                <span className="text-muted font-light">together</span>
+              <h2 className="text-4xl md:text-4xl font-semibold tracking-tight leading-[1.1] text-[#1A1A1A]">
+                Let's Work Together
               </h2>
             </div>
             <p className="reveal reveal-delay-2 text-secondary text-lg leading-relaxed font-light max-w-xs">
@@ -85,10 +105,17 @@ export default function Contact() {
           <div className="reveal reveal-delay-2 bg-[#F7F7F7] border border-[#E8E8E8] p-8 rounded-2xl">
             {status === 'sent' ? (
               <div className="flex flex-col items-center justify-center h-full py-16 text-center space-y-3">
-                <div className="w-12 h-12 border border-ink flex items-center justify-center text-xl mb-2">✓</div>
-                <h3 className="text-lg font-semibold text-ink">Message sent!</h3>
+                <div className="w-12 h-12 flex items-center justify-center text-xl text-[#007f00] mb-2"><RiFileCheckFill size={60} /></div>
+                <h3 className="text-lg font-semibold text-ink text-[#007f00]">Message sent!</h3>
                 <p className="text-lg text-secondary font-light">Thanks — I'll reply within 24 hours.</p>
-                <button onClick={() => setStatus('idle')} className="btn-outline mt-4 text-sm text-white bg-black rounded-full transition-all duration-300 hover:scale-110 active:scale-95">Send another</button>
+                <button onClick={() => setStatus('idle')} className="btn-primary mt-6 text-[16px] text-white bg-black rounded-2xl transition-all duration-300 hover:scale-110 active:scale-95">Send Another</button>
+              </div>
+            ) : status === 'error' ? (                           
+              <div className="flex flex-col items-center justify-center h-full py-16 text-center space-y-3">
+                <div className="w-12 h-12 border border-red-400 flex items-center justify-center text-xl mb-2 text-red-400"><RiFileCloseFill size={60} /></div>
+                <h3 className="text-lg font-semibold text-ink">Something went wrong</h3>
+                <p className="text-secondary font-light">Please try emailing directly.</p>
+                <button onClick={() => setStatus('idle')} className="btn-outline mt-4 text-sm text-white bg-black rounded-full">Try again</button>
               </div>
             ) : (
               <form onSubmit={submit} className="space-y-7">
@@ -97,7 +124,7 @@ export default function Contact() {
                   { id:'email',   label:'Email Address',  type:'email', placeholder:'jane@example.com',     required:true },
                 ].map(f => (
                   <div key={f.id} className="space-y-1">
-                    <label className="label text-black" htmlFor={f.id}>{f.label} {f.required && '*'}</label>
+                    <label className="label text-black inline-flex items-center" htmlFor={f.id}>{f.label} {f.required && <span className="text-red-500 text-lg ml-1 leading-none">*</span>}</label>
                     <input id={f.id} name={f.id} type={f.type} required={f.required}
                       value={form[f.id]} onChange={handle} placeholder={f.placeholder}
                       className="form-input" />
@@ -105,7 +132,7 @@ export default function Contact() {
                 ))}
 
                 <div className="space-y-1">
-                  <label className="label text-black" htmlFor="message">Message *</label>
+                  <label className="label text-black inline-flex items-center" htmlFor="message">Message <span className="text-red-500 ml-1 leading-none text-lg">*</span></label>
                   <textarea id="message" name="message" required rows={5}
                     value={form.message} onChange={handle}
                     placeholder="Tell me about your project or opportunity..."
@@ -117,33 +144,73 @@ export default function Contact() {
                   {status === 'sending' ? (
                     <><span className="w-3.5 h-3.5 border border-white/40 border-t-white rounded-full animate-spin" />Sending...</>
                   ) : (
-                        <>
+                        <div className="flex items-center gap-2 text-[16px]">
                           Send Message
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="16"
-                            height="16"
-                            fill="currentColor"
-                            className="shrink-0"
-                            viewBox="0 0 16 16"
-                          >
-                            <path d="M15.964.686a.5.5 0 0 0-.65-.65L.767 5.855H.766l-.452.18a.5.5 0 0 0-.082.887l.41.26.001.002 4.995 3.178 3.178 4.995.002.002.26.41a.5.5 0 0 0 .886-.083zm-1.833 1.89L6.637 10.07l-.215-.338a.5.5 0 0 0-.154-.154l-.338-.215 7.494-7.494 1.178-.471z" />
-                          </svg>
-                        </>
+                          <FaTelegramPlane  size={18}/>
+                        </div>
                       )
                   }
                 </button>
-                <p className="text-sm text-black text-center font-light">
+                {/* <p className="text-sm text-black text-center font-light">
                   Or Email directly at{' '}
                   <a href="mailto:yinnyeinhtwe24@gmail.com" className="text-black font-semibold transition-colors">
                     yinnyeinhtwe24@gmail.com
                   </a>
-                </p>
+                </p> */}
                 
               </form>
             )}
           </div>
         </div>
+      </div>
+
+      <div className="reveal reveal-delay-4 text-center mt-20">
+        <h2 className="text-4xl md:text-4xl font-semibold tracking-tight leading-[1.1] text-[#1A1A1A]">
+            Looking for an Immediate Answer?
+        </h2>
+        <p className="text-center text-medium text-[16px] mt-4">
+          For the quickest support, reach out to me via Telegram or email.
+        </p>
+      </div>
+
+      <div className="flex flex-col sm:flex-row justify-center items-center gap-4 mt-6 reveal reveal-delay-5">
+        <a
+          href="https://t.me/yinnyeinhtwe"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="
+            w-3/4 sm:w-[255px]
+            flex items-center justify-center gap-2
+            px-6 py-3
+            rounded-2xl
+            bg-black text-white text-[17px]
+            transition-all duration-300
+          "
+        >
+          <AiFillMessage className="text-xl" />
+          Let's Chat on Telegram
+        </a>
+
+        <a
+          href="mailto:yinnyeinhtwe24@gmail.com"
+          className="
+            w-3/4 sm:w-[255px]
+            flex items-center justify-center gap-2
+            px-6 py-3
+            rounded-2xl
+            bg-[#e5122e] text-white text-[17px]
+            transition-all duration-300
+          "
+        >
+          <IoIosMail className="text-xl" />
+          Reach Out to My Email
+        </a>
+      </div>
+
+      <div>
+        <p className="text-center text-secondary text-sm mt-16">
+          &copy; {new Date().getFullYear()} Yin Nyein Htwe. All rights reserved.
+        </p>
       </div>
     </section>
   )

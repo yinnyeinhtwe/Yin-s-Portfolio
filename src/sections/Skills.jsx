@@ -1,4 +1,24 @@
 import { useState, useEffect, useRef } from 'react'
+import {
+  FaPython,
+  FaGitAlt,
+  FaHtml5,
+  FaUsers,
+  FaClock,
+  FaLightbulb,
+  FaCommentDots,
+  FaReact,
+  FaProjectDiagram,
+} from 'react-icons/fa'
+
+import {
+  SiDjango,
+  SiJavascript,
+  SiTailwindcss,
+  SiMysql,
+} from 'react-icons/si'
+
+import { VscVscode } from 'react-icons/vsc'
 
 const TABS = [
   { id: 'Technical',   label: 'Technical'    },
@@ -10,64 +30,71 @@ const CONTENT = {
   Technical: {
     intro: 'Core programming languages, frameworks, and engineering disciplines I build with.',
     items: [
-      { name: 'Python Programming',        pct: 88 },
-      { name: 'Django Framework',          pct: 82 },
-      { name: 'Database Design (SQL / ER)',pct: 80 },
-      { name: 'HTML & CSS',                pct: 78 },
-      { name: 'JavaScript',                pct: 65 },
+      { name: 'HTML & CSS',   Icon: FaHtml5,       pct: 78 },
+      { name: 'JavaScript',   Icon: SiJavascript,  pct: 65 },
+      { name: 'React',   Icon: FaReact,  pct: 65 },
+      { name: 'Tailwind CSS', Icon: SiTailwindcss, pct: 60 },
+      { name: 'Python',       Icon: FaPython,      pct: 65 },
+      { name: 'Django',       Icon: SiDjango,      pct: 65 },
     ],
     extra: {
       heading: 'Languages Spoken',
       rows: [
         { left: 'Korean',  right: 'Conversational / Fluent' },
         { left: 'Chinese', right: 'Conversational / Fluent' },
-        { left: 'English', right: 'Conversational'          },
+        { left: 'English', right: 'Conversational' },
       ],
     },
   },
+
   Data: {
     intro: 'Data analysis, visualization, and mining tools I use to extract and communicate insights.',
     items: [
-      { name: 'Power BI',                   pct: 80 },
-      { name: 'Data Mining Techniques',     pct: 75 },
-      { name: 'Naïve Bayes / ML Basics',   pct: 68 },
-      { name: 'MySQL',                      pct: 82 },
-      { name: 'ER Diagram & Schema Design', pct: 78 },
+      { name: 'Visual Studio Code',    Icon: VscVscode,   pct: 90 },
+      { name: 'Git & GitHub', Icon: FaGitAlt, pct: 75 },
+      {name: 'Draw.io', Icon: FaProjectDiagram, pct: 80},
     ],
     extra: {
       heading: 'Key Concepts',
       rows: [
-        { left: 'KPI Dashboards',    right: 'Power BI' },
-        { left: 'Pattern Analysis',  right: 'Naïve Bayes' },
-        { left: 'Data Warehousing',  right: 'SQL / ETL'  },
+        { left: 'KPI Dashboards',   right: 'Power BI' },
+        { left: 'Pattern Analysis', right: 'Naïve Bayes' },
+        { left: 'Data Warehousing', right: 'SQL / ETL' },
       ],
     },
   },
+
   Soft: {
     intro: 'Interpersonal strengths I bring to every team, project, and deadline.',
     items: [
-      { name: 'Communication',  pct: 90 },
-      { name: 'Teamwork',       pct: 92 },
-      { name: 'Problem Solving',pct: 88 },
-      { name: 'Time Management',pct: 85 },
+      { name: 'Communication',   Icon: FaCommentDots,  pct: 90 },
+      { name: 'Teamwork',        Icon: FaUsers,     pct: 92 },
+      { name: 'Problem Solving', Icon: FaLightbulb, pct: 88 },
+      { name: 'Time Management', Icon: FaClock,     pct: 85 },
     ],
     extra: {
       heading: 'Working Style',
       rows: [
-        { left: 'Collaboration',  right: 'Team-first mindset' },
-        { left: 'Reliability',    right: 'Deadline-driven'   },
-        { left: 'Adaptability',   right: 'Fast learner'      },
+        { left: 'Collaboration', right: 'Team-first mindset' },
+        { left: 'Reliability',   right: 'Deadline-driven' },
+        { left: 'Adaptability',  right: 'Fast learner' },
       ],
     },
   },
 }
 
 /* ── animated bar ── */
-function Bar({ name, pct, visible }) {
+function Bar({ Icon, name, pct, visible }) {
   return (
     <div className="space-y-2">
       <div className="flex items-center justify-between">
-        <span className="text-base font-medium text-[#1A1A1A]">{name}</span>
+        <div className="flex items-center gap-2">
+          <Icon size={18} color="#1A1A1A" />
+
+          <span className="text-base font-medium text-[#1A1A1A]">
+            {name}
+          </span>
+        </div>
         <span className="label text-base" style={{ color: '#C2C2C2' }}>{pct}%</span>
       </div>
       <div className="h-px bg-[#E8E8E8] relative overflow-hidden">
@@ -113,7 +140,7 @@ export default function Skills() {
     return () => observer.disconnect()
   }, [])
 
-  const data = CONTENT[rendered]
+  const data = CONTENT[rendered];
 
   return (
     <section id="skills" className="mt-16 py-28 px-6 md:px-10 max-w-5xl mx-auto pt-0" ref={sectionRef}>
@@ -122,7 +149,7 @@ export default function Skills() {
         {/* Header */}
         <div className="space-y-3 mb-10">
           <div className="reveal reveal-delay-1">
-            <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-[#1A1A1A] text-center">
+            <h2 className="text-4xl md:text-4xl font-semibold tracking-tight leading-[1.1] text-[#1A1A1A] text-center">
               Skills & Capabilities
             </h2>
           </div>
@@ -149,8 +176,11 @@ export default function Skills() {
           </div>
 
         {/* ── Panel ── */}
+        <p className="text-lg text-[#3D3D3D] font-medium leading-relaxed max-w-4xl text-center text-xl text-bold mx-auto mb-10 reveal reveal-delay-2">
+           {data.intro}
+        </p>
         <div
-          className="reveal reveal-delay-3 grid md:grid-cols-2 gap-12 md:gap-20 items-start"
+          className="reveal reveal-delay-3 grid md:grid-cols-2 gap-12 md:gap-20 items-start mt-16"
           style={{
             opacity:    visible ? 1 : 0,
             transform:  visible ? 'translateY(0)' : 'translateY(12px)',
@@ -159,9 +189,7 @@ export default function Skills() {
         >
           {/* Left: intro + extra rows */}
           <div className="space-y-8">
-            <p className="text-lg text-[#3D3D3D] font-light leading-relaxed">
-              {data.intro}
-            </p>
+            
 
             {/* Active tab badge */}
             <div className="flex items-center gap-3">
@@ -189,6 +217,7 @@ export default function Skills() {
             {data.items.map((skill) => (
               <Bar
                 key={`${active}-${skill.name}`}
+                Icon={skill.Icon}
                 name={skill.name}
                 pct={skill.pct}
                 visible={visible}
@@ -201,10 +230,10 @@ export default function Skills() {
         <div className="reveal mt-16 overflow-hidden border-t border-b border-black pt-6 pb-6">
           <div className="marquee-track flex gap-10 whitespace-nowrap">
             {[
-              'Python','Django','MySQL','Power BI','HTML','CSS','JavaScript',
-              'Data Mining','UML','SQL','ER Diagrams','Naïve Bayes',
-              'Python','Django','MySQL','Power BI','HTML','CSS','JavaScript',
-              'Data Mining','UML','SQL','ER Diagrams','Naïve Bayes',
+              'Python','Django','React JS','HTML','CSS','JavaScript',
+              'Tailwind CSS','UML','ER Diagrams','React JS','HTML','CSS','JavaScript',
+              'Python','Django','MySQL','React JS','HTML','CSS','JavaScript',
+              'Tailwind CSS','UML','SQL','ER Diagrams',
             ].map((t, i) => (
               <span key={i} className="label" style={{ color: 'black' }}>
                 {t}<span style={{ color: 'black', margin: '0 8px' }}>·</span>

@@ -43,7 +43,7 @@ export default function Hero() {
           </div>
 
           <div className="reveal reveal-delay-1 mt-6">
-            <h2 className="text-5xl md:text-6xl font-semibold tracking-tight leading-none text-ink">
+            <h2 className="text-5xl md:text-5xl font-semibold tracking-tight leading-none text-ink">
               Yin Nyein Htwe
             </h2>
             <h2 className="text-4xl md:text-4xl font-light tracking-tight leading-none text-muted mt-6">
@@ -61,7 +61,7 @@ export default function Hero() {
           </div>
           <div className="flex items-center gap-5">
             <a href="#work" className="btn-primary px-6 py-3 mt-4 rounded-full bg-black text-white transition-all duration-300 hover:scale-110 active:scale-95">View Work</a>
-            <a href="/YinNyeinHtwe.pdf" download className="btn-outline px-6 py-3 mt-4 rounded-full bg-black text-white transition-all duration-300 hover:scale-110 active:scale-95">Download CV</a>
+            <a href="/YinNyeinHtwe.pdf" download className="btn-primary px-6 py-3 mt-4 rounded-full bg-[#e5122e] text-white transition-all duration-300 hover:bg-[#e5122e] hover:scale-110 active:scale-95">Download CV</a>
           </div>
         </div>
 

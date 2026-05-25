@@ -1,4 +1,5 @@
 import { useRef, useState, useCallback, useEffect } from 'react'
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const PROJECTS = [
   {
@@ -9,7 +10,7 @@ const PROJECTS = [
     year: '2024',
     description:
       'A task management and productivity system featuring a full-featured dashboard, dynamic search and filtering, and responsive UI components built with Python.',
-    tags: ['Python', 'Django', 'HTML', 'CSS', 'JavaScript'],
+    tags: ['Python', 'Django', 'HTML', 'Tailwind CSS', 'JavaScript'],
     links: [
       { label: 'Live Demo', href: 'https://dailysuite.onrender.com' },
       { label: 'GitHub', href: 'https://github.com/yinnyeinhtwe/dailysuite' },
@@ -277,7 +278,7 @@ export default function Work() {
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div className="space-y-3">
               <div className="reveal reveal-delay-1">
-                <h2 className="text-4xl md:text-5xl font-semibold tracking-tight leading-[1.1] text-[#1A1A1A]">
+                <h2 className="text-4xl md:text-4xl font-semibold tracking-tight leading-[1.1] text-[#1A1A1A]">
                   Projects I've built
                 </h2>
               </div>
@@ -397,7 +398,7 @@ export default function Work() {
                 className="w-10 h-10 border border-[#C2C2C2] flex items-center justify-center
                           text-white bg-black rounded-full transition-all duration-200 hover:border-[#1A1A1A]"
               >
-                ←
+                <FaChevronLeft />
               </button>
               
               <button
@@ -406,7 +407,7 @@ export default function Work() {
                 className="w-10 h-10 border border-[#C2C2C2] flex items-center justify-center
                           text-white bg-black rounded-full transition-all duration-200 hover:border-[#1A1A1A]"
               >
-                →
+                <FaChevronRight />
               </button>
             </div>
           </div>
