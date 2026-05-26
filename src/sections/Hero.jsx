@@ -36,7 +36,7 @@ export default function Hero() {
         <span className="label">Software Engineering · UCSY · Yangon</span>
       </div>
 
-      <div className="grid md:grid-cols-[2fr_1fr] gap-2 md:gap-24 mt-3 items-start">
+      <div className="grid md:grid-cols-[2fr_1fr] gap-2 md:gap-20 mt-3 items-start">
         <div className="space-y-3 mt-6">
           <div className="reveal">
             <span className="label">Hello, I'm 👋</span>
@@ -65,9 +65,9 @@ export default function Hero() {
           </div>
         </div>
 
-        <div className="mt-1 ml-6 reveal reveal-delay-3 w-[300px]  bg-transparent">
+        <div className="mt-1 reveal reveal-delay-3 w-[330px] bg-transparent">
           <img
-            src="/character2-removebg.png"
+            src="/shinchan1.png"
             alt="Profile"
             className="w-full object-contain hover:scale-105 transition-all duration-300 bg-transparent"
           />
