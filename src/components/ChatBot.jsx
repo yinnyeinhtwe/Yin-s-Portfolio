@@ -139,7 +139,7 @@ export default function ChatBot() {
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto px-4 py-4 space-y-6">
+        <div className="flex-1 overflow-y-auto px-3 py-4 space-y-6">
           {messages.map((msg, i) => (
             <div key={i} className={`flex items-end gap-2 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
 
