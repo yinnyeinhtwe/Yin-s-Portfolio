@@ -179,7 +179,7 @@ export default function Contact() {
           target="_blank"
           rel="noopener noreferrer"
           className="
-            w-3/4 sm:w-[300px]
+            w-4/5 sm:w-[300px]
             flex items-center justify-center gap-2
             px-6 py-3
             rounded-2xl
@@ -194,7 +194,7 @@ export default function Contact() {
         <a
           href="mailto:yinnyeinhtwe24@gmail.com"
           className="
-            w-3/4 sm:w-[300px]
+            w-4/5 sm:w-[300px]
             flex items-center justify-center gap-2
             px-6 py-3
             rounded-2xl
