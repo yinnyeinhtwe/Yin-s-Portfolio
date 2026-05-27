@@ -27,7 +27,7 @@
     @apply text-xs tracking-[0.18em] uppercase text-muted font-normal;
   }
   .btn-primary {
-    @apply inline-flex items-center gap-2 bg-ink text-white px-5 py-2.5 text-lg font-medium tracking-wide transition-all duration-200 hover:bg-black hover:gap-3;
+    @apply inline-flex items-center gap-2 bg-ink text-white px-5 py-2.5 text-lg font-medium tracking-wide transition-all duration-200 hover:gap-3;
   }
   .btn-outline {
     @apply inline-flex items-center gap-2 border border-ink text-ink px-5 py-2.5 text-lg font-medium tracking-wide transition-all duration-200 hover:bg-ink hover:text-white hover:gap-3;

@@ -33,11 +33,11 @@ export default function App() {
       {progress > 20 && (
         <button
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-          className="fixed bottom-6 left-6 z-50 w-9 h-9 border border-border rounded-full bg-black text-white text-lg flex items-center justify-center hover:bg-ink hover:text-white hover:border-ink transition-all duration-200"
+          className="fixed bottom-6 left-6 z-50 w-9 h-9 rounded-full bg-black text-white text-lg flex items-center justify-center hover:bg-ink hover:text-white hover:border-ink transition-all duration-200"
           aria-label="Back to top"
         ><FaAngleUp /></button>
       )}
-      <ChatBot />
+      <ChatBot className="fixed bottom-6 right-6" />
     </div>
   )
 }

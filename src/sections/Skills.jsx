@@ -86,20 +86,20 @@ const CONTENT = {
 /* ── animated bar ── */
 function Bar({ Icon, name, pct, visible }) {
   return (
-    <div className="space-y-2">
+    <div className="space-y-2 border border-[#E8E8E8] shadow-md rounded-2xl p-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-2">
           <Icon size={18} color="#1A1A1A" />
 
-          <span className="text-base font-medium text-[#1A1A1A]">
+          <span className="text-base font-medium text-[#1A1A1A] text-[15px]">
             {name}
           </span>
         </div>
-        <span className="label text-base" style={{ color: '#C2C2C2' }}>{pct}%</span>
+        <span className="text-sm" style={{ color: '#99A1AF' }}>{pct}%</span>
       </div>
-      <div className="h-px bg-[#E8E8E8] relative overflow-hidden">
+      <div className="h-[4px] bg-[#E8E8E8] relative overflow-hidden rounded-full">
         <div
-          className="absolute inset-0 h-full bg-[#1A1A1A] origin-left"
+          className="absolute inset-0 h-full bg-[#34A6F4] rounded-full origin-left"
           style={{
             transform:  visible ? 'scaleX(1)' : 'scaleX(0)',
             maxWidth:   `${pct}%`,
@@ -162,11 +162,11 @@ export default function Skills() {
                 key={id}
                 onClick={() => switchTab(id)}
                 className={`
-                  flex-1 text-sm font-medium tracking-wide uppercase
+                  flex-1 text-sm font-bold tracking-wide uppercase
                   py-2 rounded-full
                   transition-all duration-300
                   ${active === id
-                    ? 'bg-[#1A1A1A] text-white'
+                    ? 'bg-[#74D4FF] text-black shadow-md'
                     : 'text-[#3D3D3D] hover:bg-[#F7F7F7]'}
                 `}
               >
@@ -176,11 +176,11 @@ export default function Skills() {
           </div>
 
         {/* ── Panel ── */}
-        <p className="text-lg text-[#3D3D3D] font-medium leading-relaxed max-w-4xl text-center text-xl text-bold mx-auto mb-10 reveal reveal-delay-2">
+        <p className="text-lg text-black font-medium leading-relaxed max-w-4xl text-center text-xl text-bold mx-auto mb-10 reveal reveal-delay-2">
            {data.intro}
         </p>
         <div
-          className="reveal reveal-delay-3 grid md:grid-cols-2 gap-12 md:gap-20 items-start mt-16"
+          className="reveal reveal-delay-3 items-start mt-16"
           style={{
             opacity:    visible ? 1 : 0,
             transform:  visible ? 'translateY(0)' : 'translateY(12px)',
@@ -188,32 +188,10 @@ export default function Skills() {
           }}
         >
           {/* Left: intro + extra rows */}
-          <div className="space-y-8">
-            
-
-            {/* Active tab badge */}
-            <div className="flex items-center gap-3">
-              <div className="w-2 h-2 bg-[#1A1A1A]" />
-              <span className="label text-sm">{TABS.find(t => t.id === active)?.label}</span>
-            </div>
-
-            {/* Extra info rows */}
-            <div className="space-y-1">
-              <p className="label mb-3" style={{ color: '#C2C2C2' }}>{data.extra.heading}</p>
-              {data.extra.rows.map(({ left, right }) => (
-                <div
-                  key={left}
-                  className="flex items-center justify-between py-2.5 border-b border-[#E8E8E8]"
-                >
-                  <span className="font-medium text-[#1A1A1A]">{left}</span>
-                  <span className="text-[#3D3D3D] font-light">{right}</span>
-                </div>
-              ))}
-            </div>
-          </div>
+          
 
           {/* Right: skill bars */}
-          <div className="space-y-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {data.items.map((skill) => (
               <Bar
                 key={`${active}-${skill.name}`}

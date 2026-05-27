@@ -44,11 +44,11 @@ export default function Contact() {
           {/* Left */}
           <div className="space-y-8">
             <div className="reveal reveal-delay-1">
-              <h2 className="text-4xl md:text-4xl font-semibold tracking-tight leading-[1.1] text-[#1A1A1A]">
+              <h2 className="text-4xl md:text-4xl font-semibold tracking-tight leading-[1.1] text-[#1A1A1A] text-center md:text-left mx-auto md:mx-0">
                 Let's Work Together
               </h2>
             </div>
-            <p className="reveal reveal-delay-2 text-secondary text-lg leading-relaxed font-light max-w-xs">
+            <p className="reveal reveal-delay-2 text-secondary text-lg leading-relaxed font-light text-center md:text-left mx-auto md:mx-0">
               I'm currently open to internship opportunities. Whether you have a question or just want to say hi — feel free to reach out.
             </p>
 
@@ -102,7 +102,7 @@ export default function Contact() {
           </div>
 
           {/* Right: form */}
-          <div className="reveal reveal-delay-2 bg-[#F7F7F7] border border-[#E8E8E8] p-8 rounded-2xl">
+          <div className="reveal reveal-delay-2 bg-white shadow-md border p-8 rounded-2xl">
             {status === 'sent' ? (
               <div className="flex flex-col items-center justify-center h-full py-16 text-center space-y-3">
                 <div className="w-12 h-12 flex items-center justify-center text-xl text-[#007f00] mb-2"><RiFileCheckFill size={60} /></div>
@@ -140,7 +140,7 @@ export default function Contact() {
                 </div>
 
                 <button type="submit" disabled={status === 'sending'}
-                  className="mx-auto block btn-primary px-6 py-3 flex items-center rounded-full justify-center gap-2 disabled:opacity-50 transition-all duration-300 hover:scale-110 active:scale-95">
+                  className="mx-auto block btn-primary px-6 py-3 flex items-center rounded-2xl justify-center gap-2 disabled:opacity-50 transition-all duration-300 hover:scale-110 active:scale-95">
                   {status === 'sending' ? (
                     <><span className="w-3.5 h-3.5 border border-white/40 border-t-white rounded-full animate-spin" />Sending...</>
                   ) : (
@@ -179,11 +179,11 @@ export default function Contact() {
           target="_blank"
           rel="noopener noreferrer"
           className="
-            w-3/4 sm:w-[255px]
+            w-3/4 sm:w-[300px]
             flex items-center justify-center gap-2
             px-6 py-3
             rounded-2xl
-            bg-black text-white text-[17px]
+            bg-[#FFF085] text-black text-[17px] font-bold
             transition-all duration-300
           "
         >
@@ -194,11 +194,11 @@ export default function Contact() {
         <a
           href="mailto:yinnyeinhtwe24@gmail.com"
           className="
-            w-3/4 sm:w-[255px]
+            w-3/4 sm:w-[300px]
             flex items-center justify-center gap-2
             px-6 py-3
             rounded-2xl
-            bg-[#e5122e] text-white text-[17px]
+            bg-[#74D4FF] text-black text-[17px] font-bold
             transition-all duration-300
           "
         >
@@ -208,7 +208,7 @@ export default function Contact() {
       </div>
 
       <div>
-        <p className="text-center text-secondary text-sm mt-16">
+        <p className="text-center text-secondary text-sm mt-9">
           &copy; {new Date().getFullYear()} Yin Nyein Htwe. All rights reserved.
         </p>
       </div>

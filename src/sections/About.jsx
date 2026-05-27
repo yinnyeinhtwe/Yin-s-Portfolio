@@ -8,8 +8,8 @@ export default function About() {
       </div>
       <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start">
         {/* Left */}
-        <div className="space-y-10 ">
-          <div className="reveal reveal-delay-2 grid grid-cols-2 gap-6 border-t border-border pt-8 ">
+        <div className="space-y-10">
+          <div className="reveal reveal-delay-2 grid grid-cols-2 gap-6 border-t border-[#FDD430] border-border pt-8 ">
             {[
               { label: 'Based in',    value: 'Yangon, Myanmar' },
               { label: 'University',  value: 'UCSY' },
@@ -24,7 +24,7 @@ export default function About() {
           </div>
 
           {/* Languages */}
-          <div className="reveal reveal-delay-3 border-t border-border pt-8">
+          <div className="reveal reveal-delay-3 border-t border-[#FDD430] border-border pt-8">
             <p className="label mb-4">Languages</p>
             <div className="space-y-3">
               {[
@@ -37,24 +37,24 @@ export default function About() {
                     <span className="font-medium text-ink">{l.lang}</span>
                     <span className="text-muted font-light text-sm">{l.level}</span>
                   </div>
-                  <div className="h-px bg-border">
-                    <div className="h-px bg-ink" style={{ width: l.pct + '%' }} />
+                  <div className="h-1 bg-border rounded-full">
+                    <div className="h-1 bg-[#34A6F4] rounded-full" style={{ width: l.pct + '%' }} />
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="reveal reveal-delay-4">
-            <a href="#contact" className="btn-primary px-6 py-3 rounded-full bg-black text-white transition-all duration-300 hover:scale-110 active:scale-95">Let's Connect</a>
+          <div className="reveal reveal-delay-4 items-center text-center">
+            <a href="#contact" className="btn-primary px-6 py-3 rounded-2xl bg-[#FFF085] text-black text-[17px] font-bold transition-all duration-300 hover:scale-110 active:scale-95">Let's Connect</a>
           </div>
         </div>
 
         {/* Right */}
-        <div className="space-y-8">
-          <div className="reveal reveal-delay-2 space-y-4 text-secondary text-lg leading-relaxed font-light">
+       <div className="space-y-6 bg-[#74D4FF]/[.15] p-5 sm:p-6 md:p-8 rounded-2xl">
+          <div className="reveal reveal-delay-2 space-y-4 text-secondary text-lg leading-relaxed font-medium">
             <p>
-              I'm a Software Engineering student at the University of Computer Studies, Yangon (UCSY), passionate about creating modern and responsive web applications. 
+              I'm a <span className="text-[#FDD430] font-semibold">Software Engineering student</span> at the University of Computer Studies, Yangon (UCSY), passionate about creating modern and responsive web applications. 
               I'm especially interested in frontend development using React and Tailwind CSS, where I enjoy building clean, interactive, and user-friendly interfaces.
             </p>
             <p>
