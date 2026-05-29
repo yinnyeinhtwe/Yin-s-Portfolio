@@ -54,13 +54,12 @@ export default function About() {
        <div className="space-y-6 bg-[#74D4FF]/[.15] p-5 sm:p-6 md:p-8 rounded-2xl">
           <div className="reveal reveal-delay-2 space-y-4 text-secondary text-lg leading-relaxed font-medium">
             <p>
-              I'm a <span className="text-[#FDD430] font-semibold">Software Engineering student</span> at the University of Computer Studies, Yangon (UCSY), passionate about creating modern and responsive web applications. 
-              I'm especially interested in frontend development using React and Tailwind CSS, where I enjoy building clean, interactive, and user-friendly interfaces.
+              I'm a <span className="text-[#FDD430] font-semibold"> Software Engineering student </span> at the University of Computer Studies, Yangon (UCSY), dedicated to developing modern and responsive web applications.
+              My primary focus is on frontend development, where I strive to create clean, interactive, and user-friendly interfaces.
             </p>
             <p>
-              I enjoy working on the full picture — from designing ER diagrams and writing clean SQL
-              to building interactive dashboards and intuitive web UIs. 
-              Through every project, I focus on improving my skills, learning new technologies, and building solutions that provide real value.
+              I take a holistic approach to my projects, which includes designing ER diagrams and developing interactive dashboards as well as intuitive web user interfaces.
+              Throughout my endeavors, I prioritize skill improvement, continuous learning of new technologies, and delivering solutions that offer genuine value.
             </p>
           </div>
         </div>
